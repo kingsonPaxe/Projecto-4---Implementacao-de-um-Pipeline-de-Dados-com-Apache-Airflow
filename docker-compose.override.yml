@@ -1,0 +1,26 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: Kingson1976@ # Cola a senha da sua BD
+      MYSQL_DATABASE: log_site_vendas # Informe o nome do banco de dados que você quer criar
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - astro_default
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  mysql_data:
+
+networks:
+  astro_default:
+    external: false
