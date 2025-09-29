@@ -1,46 +1,60 @@
-Overview
-========
+# Projecto 4 — Implementação de um Pipeline de Dados com Apache Airflow
 
-Welcome to Astronomer! This project was generated after you ran 'astro dev init' using the Astronomer CLI. This readme describes the contents of the project, as well as how to run Apache Airflow on your local machine.
+## Visão Geral
 
-Project Contents
-================
+Este projeto tem como objetivo construir e orquestrar um pipeline de dados completo utilizando o Apache Airflow, desde a extração de dados até o carregamento final em uma base de dados. O foco principal é demonstrar a aplicação prática de processos ETL (Extract, Transform, Load) em um ambiente automatizado e controlado.
 
-Your Astro project contains the following files and folders:
+## Conteúdo do Projeto
 
-- dags: This folder contains the Python files for your Airflow DAGs. By default, this directory includes one example DAG:
-    - `example_astronauts`: This DAG shows a simple ETL pipeline example that queries the list of astronauts currently in space from the Open Notify API and prints a statement for each astronaut. The DAG uses the TaskFlow API to define tasks in Python, and dynamic task mapping to dynamically print a statement for each astronaut. For more on how this DAG works, see our [Getting started tutorial](https://www.astronomer.io/docs/learn/get-started-with-airflow).
-- Dockerfile: This file contains a versioned Astro Runtime Docker image that provides a differentiated Airflow experience. If you want to execute other commands or overrides at runtime, specify them here.
-- include: This folder contains any additional files that you want to include as part of your project. It is empty by default.
-- packages.txt: Install OS-level packages needed for your project by adding them to this file. It is empty by default.
-- requirements.txt: Install Python packages needed for your project by adding them to this file. It is empty by default.
-- plugins: Add custom or community plugins for your project to this file. It is empty by default.
-- airflow_settings.yaml: Use this local-only file to specify Airflow Connections, Variables, and Pools instead of entering them in the Airflow UI as you develop DAGs in this project.
+- **dags/**: Contém os arquivos Python dos DAGs do Airflow:
+  - `project1.py`: Pipeline ETL para logs de site de vendas (extrai, transforma e carrega dados para MySQL).
+  - `ETL_Bitcoin.py`: Pipeline que extrai dados de Bitcoin de uma API e carrega no MongoDB.
+  - `exampledag.py`: DAG exemplo que consulta astronautas em missão e imprime informações utilizando TaskFlow API.
+- **Dockerfile**: Imagem Astro Runtime para rodar o ambiente do Airflow.
+- **requirements.txt**: Adicione aqui os pacotes Python necessários.
+- **packages.txt**: Adicione pacotes de sistema operacional necessários.
+- **plugins/**: Plugins customizados/comunitários para o Airflow.
+- **airflow_settings.yaml**: Configurações locais de conexões, variáveis e pools do Airflow.
 
-Deploy Your Project Locally
-===========================
+## Principais Funcionalidades
 
-Start Airflow on your local machine by running 'astro dev start'.
+- **ETL de Logs**: Automatiza a coleta, tratamento e persistência dos logs de acesso do site, normalizando dados, geolocalizando IPs e salvando no MySQL.
+- **ETL de Bitcoin**: Extrai dados de cotação de Bitcoin via API, transforma e carrega em MongoDB.
+- **Exemplo de Astronautas**: Consulta a lista de astronautas no espaço, imprime informações por meio de mapeamento dinâmico de tarefas.
 
-This command will spin up five Docker containers on your machine, each for a different Airflow component:
+## Dependências
 
-- Postgres: Airflow's Metadata Database
-- Scheduler: The Airflow component responsible for monitoring and triggering tasks
-- DAG Processor: The Airflow component responsible for parsing DAGs
-- API Server: The Airflow component responsible for serving the Airflow UI and API
-- Triggerer: The Airflow component responsible for triggering deferred tasks
+- Python
+- Apache Airflow
+- SQLAlchemy
+- Pandas
+- Requests
+- PyMySQL
+- Pymongo
+- Docker (para ambiente local)
+- Astronomer CLI (opcional para deploy em Astronomer)
 
-When all five containers are ready the command will open the browser to the Airflow UI at http://localhost:8080/. You should also be able to access your Postgres Database at 'localhost:5432/postgres' with username 'postgres' and password 'postgres'.
+## Como Executar Localmente
 
-Note: If you already have either of the above ports allocated, you can either [stop your existing Docker containers or change the port](https://www.astronomer.io/docs/astro/cli/troubleshoot-locally#ports-are-not-available-for-my-local-airflow-webserver).
+1. Instale o [Docker](https://www.docker.com/) e o [Astronomer CLI](https://docs.astronomer.io/astro/cli-install).
+2. Clone o repositório:
+   ```bash
+   git clone https://github.com/kingsonPaxe/Projecto-4---Implementacao-de-um-Pipeline-de-Dados-com-Apache-Airflow.git
+   cd Projecto-4---Implementacao-de-um-Pipeline-de-Dados-com-Apache-Airflow
+   ```
+3. Execute o ambiente de desenvolvimento:
+   ```bash
+   astro dev start
+   ```
+4. Acesse o Airflow Webserver em `http://localhost:8080`, e visualize/execute os DAGs disponíveis.
 
-Deploy Your Project to Astronomer
-=================================
+## Como Fazer Deploy para Astronomer
 
-If you have an Astronomer account, pushing code to a Deployment on Astronomer is simple. For deploying instructions, refer to Astronomer documentation: https://www.astronomer.io/docs/astro/deploy-code/
+Se possuir uma conta Astronomer, consulte a [documentação oficial](https://www.astronomer.io/docs/astro/deploy-code/) para instruções detalhadas de deploy.
 
-Contact
-=======
+## Contato
 
-The Astronomer CLI is maintained with love by the Astronomer team. To report a bug or suggest a change, reach out to our support.
-# Projecto-4---Implementacao-de-um-Pipeline-de-Dados-com-Apache-Airflow
+Para dúvidas, sugestões ou bugs, entre em contato via [GitHub Issues](https://github.com/kingsonPaxe/Projecto-4---Implementacao-de-um-Pipeline-de-Dados-com-Apache-Airflow/issues).
+
+---
+Projeto mantido por [kingsonPaxe](https://github.com/kingsonPaxe)
