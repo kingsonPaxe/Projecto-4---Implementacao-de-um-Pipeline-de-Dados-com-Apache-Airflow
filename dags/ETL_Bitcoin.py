@@ -47,7 +47,7 @@ def transform(data_transform):
 
 # Função para carregar os dados transformados no MongoDB
 def load(dataLoad: dict):
-    client = MongoClient("mongodb://192.168.0.25:27017/")  # Conecta ao MongoDB, hoste do MongoDB no doker-compose
+    client = MongoClient("mongodb://192.168.0.25:27017/")  # Conecta ao MongoDB, host do MongoDB no doker-compose
     db = client["Dados_BitCoin"]  # Cria/seleciona o banco de dados
     colecao = db["tabela"]  # Cria/seleciona a coleção (tabela)
     colecao.insert_one(dataLoad)  # Insere os dados na coleção
