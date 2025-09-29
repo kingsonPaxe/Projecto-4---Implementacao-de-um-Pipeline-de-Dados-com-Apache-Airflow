@@ -56,5 +56,7 @@ Se possuir uma conta Astronomer, consulte a [documentação oficial](https://www
 
 Para dúvidas, sugestões ou bugs, entre em contato via [GitHub Issues](https://github.com/kingsonPaxe/Projecto-4---Implementacao-de-um-Pipeline-de-Dados-com-Apache-Airflow/issues).
 
+[LinkedIn](https://www.linkedin.com/in/jeovani-paxe-09a30221b/)
+
 ---
-Projeto mantido por [kingsonPaxe](https://github.com/kingsonPaxe)
+Projeto mantido por [Jeovani Paxe](https://github.com/kingsonPaxe)
